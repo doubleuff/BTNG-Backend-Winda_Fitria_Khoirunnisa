@@ -1,66 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Findinus — API Pendataan Barang Hilang dan Ditemukan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deskripsi
 
-## About Laravel
+Findinus merupakan proyek pengembangan REST API untuk pendataan barang hilang dan barang ditemukan. Proyek ini dibuat sebagai bagian dari kegiatan pelatihan Backend BTNG 2026 di lingkungan organisasi kampus.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+API ini dikembangkan menggunakan Laravel 12 dan MySQL. Fitur yang tersedia meliputi pengambilan data, penambahan data, pembaruan data, dan penghapusan data barang.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Laravel 12
+- PHP
+- MySQL
+- Swagger untuk dokumentasi dan pengujian API
+- Clever Cloud untuk deployment
 
-## Learning Laravel
+## Link Proyek
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Repository GitHub:** https://github.com/doubleuff/BTNG-Backend-Winda_Fitria_Khoirunnisa
+- **Dokumentasi API:** https://app-e8682051-5d2f-48c8-8b73-6e6f0aeb09ef.cleverapps.io/docs/api
+- **Base URL:** https://app-e8682051-5d2f-48c8-8b73-6e6f0aeb09ef.cleverapps.io
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Fitur API
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+API Findinus memiliki beberapa endpoint untuk mengelola data barang.
 
-## Laravel Sponsors
+| Method | Endpoint | Keterangan |
+|---|---|---|
+| GET | `/api/items` | Menampilkan seluruh data barang |
+| GET | `/api/items/{id}` | Menampilkan detail barang berdasarkan ID |
+| POST | `/api/items` | Menambahkan data barang |
+| PUT/PATCH | `/api/items/{id}` | Memperbarui data barang |
+| DELETE | `/api/items/{id}` | Menghapus data barang |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Data Barang
 
-### Premium Partners
+Data barang memiliki beberapa atribut, yaitu:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- `nama_item`: nama barang
+- `kategori`: kategori barang
+- `lokasi`: lokasi kejadian
+- `deskripsi`: deskripsi barang
+- `jenis`: jenis barang, yaitu hilang atau ditemukan
+- `status`: status penanganan barang
+- `tanggal_kejadian`: tanggal kejadian
+- `kontak`: informasi kontak
+- `foto`: informasi foto barang
 
-## Contributing
+## Cara Menjalankan Proyek
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Clone Repository
 
-## Code of Conduct
+```bash
+git clone https://github.com/doubleuff/BTNG-Backend-Winda_Fitria_Khoirunnisa.git
+cd BTNG-Backend-Winda_Fitria_Khoirunnisa
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2. Install Dependencies
 
-## Security Vulnerabilities
+```bash
+composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. Konfigurasi Environment
 
-## License
+Salin file `.env.example` menjadi `.env`, kemudian buat application key.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+Sesuaikan konfigurasi database pada file `.env` dengan database MySQL yang digunakan.
+
+### 4. Migrasi Database
+
+```bash
+php artisan migrate
+```
+
+### 5. Menambahkan Data Awal
+
+```bash
+php artisan db:seed
+```
+
+Perintah tersebut digunakan untuk menjalankan seeder yang telah dikonfigurasi pada proyek.
+
+### 6. Menjalankan Server Lokal
+
+```bash
+php artisan serve
+```
+
+Setelah server berjalan, API lokal dapat diakses melalui `http://127.0.0.1:8000`.
+
+## Pengujian API
+
+Pengujian API dapat dilakukan melalui dokumentasi Swagger yang tersedia pada link berikut:
+
+https://app-e8682051-5d2f-48c8-8b73-6e6f0aeb09ef.cleverapps.io/docs/api
+
+Pengujian meliputi proses menampilkan data, menambahkan data, memperbarui data, menghapus data, dan memeriksa validasi input.
+
+## Penutup
+
+Proyek Findinus dikembangkan sebagai bagian dari Tugas Akhir Backend BTNG 2026. Melalui proyek ini, penerapan REST API menggunakan Laravel 12 dan MySQL dilakukan untuk mengelola data barang hilang dan ditemukan.
+
+**Pengembang:** Winda Fitria Khoirunnisa
